@@ -20,7 +20,7 @@ Feel free to modify and adapt this description to best represent your React pack
 git clone https://github.com/Anjie167/flutter_components.git
 
 # Install dependencies
-npm i @anjie167/flutter_components
+npm i flutter_components
 ```
 
 ## Usage
