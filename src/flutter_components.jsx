@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 
 const NullWidget = () => { };
@@ -43,7 +43,7 @@ export const Column = ({ children, mainAxisAlignment, crossAxisAlignment }) => {
 };
 
 export const Container = ({
-    child,
+    children,
     width,
     height,
     color,
@@ -66,7 +66,7 @@ export const Container = ({
         boxShadow: boxShadow || 'none',
     };
 
-    return <div style={containerStyle}>{child}</div>;
+    return <div style={containerStyle}>{children}</div>;
 };
 
 export class GridViewBuilder extends React.Component {
@@ -312,6 +312,48 @@ export const Icon = ({
         aria-label={semanticLabel}
         aria-describedby={semanticDescription}
       />
+    );
+  };
+
+ export const TextField = ({
+    initialValue = '',
+    hintText = '',
+    labelText = '',
+    onChanged = () => {},
+    onSubmitted = () => {},
+    keyboardType = 'text',
+    obscureText = false,
+  }) => {
+    const [value, setValue] = useState(initialValue);
+
+    const handleChange = (event) => {
+      const newValue = event.target.value;
+      setValue(newValue);
+      onChanged(newValue);
+    };
+  
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        onSubmitted(value);
+      }
+    };
+  
+    const inputType =
+      keyboardType === 'email' ? 'email' :
+      keyboardType === 'number' ? 'number' :
+      obscureText ? 'password' : 'text';
+  
+    return (
+      <div>
+        <label>{labelText}</label>
+        <input
+          type={inputType}
+          value={value}
+          onChange={handleChange}
+          onKeyPress={handleKeyPress}
+          placeholder={hintText}
+        />
+      </div>
     );
   };
 
