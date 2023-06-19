@@ -10,7 +10,7 @@
     "start": "tsdx watch",
     "build": "npx babel src --out-dir dist"
   },
-  "name": "@anjie167/flutter_components",
+  "name": "flutter_components",
   "author": "Anjola favour ayomikun",
   "devDependencies": {
     "@babel/cli": "^7.22.5",
