@@ -306,11 +306,5 @@ This package is licensed under the MIT License.
 These are the widgets currently available
 Container
 Column, Row, Stack,
-Image, Text, Icon
+Image, Text, Icon, TextField
 GridViewBuilder, ListviewBuilder
-
-## Contributing
-...
-
-## License
-...
